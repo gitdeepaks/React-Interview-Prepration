@@ -1,12 +1,15 @@
 import "./App.css";
-import UseStateHook from "./components/usestate";
+import UseEffectHook from "./hooks/use-effect-hook";
+import UseRefHook from "./hooks/use-ref-hook";
+
+// import UseStateHook from "./hooks/usestate";
 
 function App() {
   return (
     <>
       Hello Hooks
-      <h2>useState</h2>
-      <UseStateHook />
+      <UseEffectHook />
+      <UseRefHook />
     </>
   );
 }
