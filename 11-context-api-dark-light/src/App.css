@@ -1,0 +1,84 @@
+[data-theme='light'] {
+    --main-padding: 0;
+    --main-margin: 0;
+    --main-box-sizing: border-box;
+    --main-display: flex;
+    --main-align-items: center;
+    --main-justify-content: center;
+    --main-min-height: 100vh;
+    --main-font-family: Arial, sans-serif;
+    --main-background-color: #f0f0f0; 
+    --main-text-color: black;
+    
+    
+  }
+
+  [data-theme='dark'] {
+    --main-padding: 0;
+    --main-margin: 0;
+    --main-box-sizing: border-box;
+    --main-display: flex;
+    --main-align-items: center;
+    --main-justify-content: center;
+    --main-min-height: 100vh;
+    --main-font-family: Arial, sans-serif;
+    --main-background-color: #333333; /* Dark background color */
+    --main-text-color: white; /* Light text color */
+  }
+  
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: var(--main-box-sizing);
+  }
+  
+  body {
+    background-color: var(--main-background-color);
+    padding: var(--main-padding);
+    margin: var(--main-margin);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: var(--main-min-height);
+    font-family: var(--main-font-family);
+    background-color: var(--main-background-color); /* Optional */
+    color: var(--main-text-color);
+  }
+  h1 {
+    color: var(--main-text-color);
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .navbar {
+    width: 100%;
+    justify-content: space-between;
+    background-color: #333; /* Optional: to set a background color for the NavBar */
+    color: white; /* NavBar text color */
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: var(--main-text-color); /* Ensures text is black */
+  }
+  
+  /* Ensure consistent font style and color across all elements */
+  body, .main-content, .navbar, .page {
+    color: var(--main-text-color);
+  }
+  
