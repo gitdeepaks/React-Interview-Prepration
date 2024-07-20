@@ -1,4 +1,5 @@
 import "./App.css";
+import UseContextHook from "./hooks/use-context-hook";
 import UseEffectHook from "./hooks/use-effect-hook";
 import UseRefHook from "./hooks/use-ref-hook";
 
@@ -8,8 +9,8 @@ function App() {
   return (
     <>
       Hello Hooks
-      <UseEffectHook />
-      <UseRefHook />
+      {/* <UseEffectHook /> */}
+      <UseContextHook />
     </>
   );
 }
