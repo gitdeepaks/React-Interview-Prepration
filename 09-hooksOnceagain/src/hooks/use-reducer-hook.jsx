@@ -1,4 +1,4 @@
-import {useReducer} from "react";
+import { useReducer } from "react";
 
 const UseReducerHook = () => {
   const countReducer = (state, action) => {
@@ -37,8 +37,8 @@ const UseReducerHook = () => {
         - Alternative to useState and provides a way to update state based on defined actions.
       */}
       <p>Count: {state.count}</p>
-      <button onClick={() => dispatch({type: "INCREMENT"})}>Increment</button>
-      <button onClick={() => dispatch({type: "DECREMENT"})}>Decrement</button>
+      <button onClick={() => dispatch({ type: "INCREMENT" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "DECREMENT" })}>Decrement</button>
 
       <h5>Question 2: When should you use useReducer instead of useState?</h5>
       {/* 
@@ -84,9 +84,9 @@ const cartReducer = (state, action) => {
 };
 
 const products = [
-  {id: 1, name: "Product 1"},
-  {id: 2, name: "Product 2"},
-  {id: 3, name: "Product 3"},
+  { id: 1, name: "Product 1" },
+  { id: 2, name: "Product 2" },
+  { id: 3, name: "Product 3" },
 ];
 
 const ShoppingCart = () => {
@@ -99,7 +99,7 @@ const ShoppingCart = () => {
           <li key={item.id}>
             {item.name}{" "}
             <button
-              onClick={() => dispatch({type: "REMOVE_ITEM", payload: item})}
+              onClick={() => dispatch({ type: "REMOVE_ITEM", payload: item })}
             >
               Remove from Cart
             </button>
@@ -110,12 +110,14 @@ const ShoppingCart = () => {
       {products.map((prod) => (
         <button
           key={prod.id}
-          onClick={() => dispatch({type: "ADD_ITEM", payload: prod})}
+          onClick={() => dispatch({ type: "ADD_ITEM", payload: prod })}
         >
           {prod.name}
         </button>
       ))}
-      <button onClick={() => dispatch({type: "CLEAR_CART"})}>Clear Cart</button>
+      <button onClick={() => dispatch({ type: "CLEAR_CART" })}>
+        Clear Cart
+      </button>
     </div>
   );
 };
