@@ -1,20 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import useCounter from "./hooks/useCounter";
 import Counter from "./components/Counter";
-import { useWindow } from "./hooks/useWindow";
+import Width from "./components/Width";
+import Fetch from "./components/Fetch";
+import DeBounce from "./components/DeBounce";
+import LocalStorage from "./components/LocalStorage";
 
 function App() {
-  const { width, height } = useWindow();
-
   return (
     <>
-      <Counter />;
-      <div className="">
-        width:{width} height:{height}
-      </div>
+      {/* <Counter />
+
+      <Width />
+
+      <Fetch /> */}
+      {/* <DeBounce /> */}
+      <LocalStorage />
     </>
   );
 }
