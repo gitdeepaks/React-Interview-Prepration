@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function HeaDer() {
   return (
@@ -9,7 +9,7 @@ export default function HeaDer() {
         //   [isPending ? "pending" : ""];
         // }}
 
-        to="/"
+        to="/auth"
       >
         Home
       </NavLink>
