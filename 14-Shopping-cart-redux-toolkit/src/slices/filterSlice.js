@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-const filterSlice = createSlice({
+export const filterSlice = createSlice({
   name: "filter",
   initialState: {
     byStock: false,
@@ -11,5 +11,18 @@ const filterSlice = createSlice({
     sortByPrice(state, action) {
       state.sort = action.payload;
     },
+    filterByRating(state, action) {
+      state.byRating = action.payload;
+    },
+    filterBySearch(state, action) {
+      state.byRating = action.payload;
+    },
+    clearFilter(state) {
+      state.byStock = false;
+      state.byRating = 0;
+      state.searchQuery = "";
+    },
   },
 });
+
+export default filterSlice.reducers;

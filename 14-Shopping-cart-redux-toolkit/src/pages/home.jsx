@@ -1,22 +1,35 @@
-import {useMemo, useState} from "react";
-import {ShoppingCartState} from "../context/context";
+import { useEffect, useMemo, useState } from "react";
+import { ShoppingCartState } from "../context/context";
 import Pagination from "../components/pagination";
 import StarRating from "../components/star-rating";
 import Filters from "../components/filters";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  fetchProductsAsync,
+  removeFromCart,
+} from "../slices/cartSlice";
 
 const Home = () => {
   const [page, setPage] = useState(1);
 
-  const {
-    state: {products, cart},
-    dispatch,
-    filterState: {sort, byStock, byRating, searchQuery},
-  } = ShoppingCartState();
+  // const {
+  //   state: {products, cart},
+  //   dispatch,
+  //   filterState: {sort, byStock, byRating, searchQuery},
+  // } = ShoppingCartState();
 
-  console.log(cart);
+  const dispatch = useDispatch();
+  const { sort, byStock, byRating, searchQuery } = useSelector(
+    (state) => state.filter
+  );
+
+  useEffect(function () {
+    dispatch(fetchProductsAsync());
+  }, []);
 
   const filteredProducts = useMemo(() => {
-    let filteredProducts = products;
+    let filteredProducts = [...products];
 
     if (sort) {
       filteredProducts = filteredProducts.sort((a, b) => {
@@ -68,11 +81,18 @@ const Home = () => {
                       !inCart ? "bg-orange-400" : "bg-blue-400"
                     } border-none rounded-sm disabled:opacity-50`}
                     disabled={!prod.inStock}
+                    // onClick={() =>
+                    //   dispatch({
+                    //     type: inCart ? "REMOVE_FROM_CART" : "ADD_TO_CART",
+                    //     payload: prod,
+                    //   })
+                    // }
                     onClick={() =>
-                      dispatch({
-                        type: inCart ? "REMOVE_FROM_CART" : "ADD_TO_CART",
-                        payload: prod,
-                      })
+                      dispatch(
+                        inCart
+                          ? removeFromCart(prod)
+                          : addToCart({ ...prod, qty: 1 })
+                      )
                     }
                   >
                     {prod.inStock

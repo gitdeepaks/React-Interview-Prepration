@@ -1,10 +1,10 @@
-import {Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "./header";
 
 const AppLayout = () => {
   return (
     <div className="p-6">
-      <Header />
+      {/* <Header /> */}
 
       <main>
         <Outlet />
