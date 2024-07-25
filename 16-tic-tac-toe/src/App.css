@@ -1,0 +1,41 @@
+body{
+  font-family: sans-serif;
+}
+
+.game{
+  max-width: calc(3 * 100px);
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+  
+}
+
+.status{
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.board{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-content: center;
+
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  font-size: 35px;
+  border: 2px solid #8a8a6d;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.cell:hover{
+  background-color: #52869e;
+}
+
+.reset-button{
+  padding: 2px 4px;
+}
