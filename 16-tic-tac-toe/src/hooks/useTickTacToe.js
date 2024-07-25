@@ -28,6 +28,7 @@ export default function useTicTacToe(boardSize) {
 
     const diagonal1 = [];
     const diagonal2 = [];
+
     for (let index = 0; index < boardSize; index++) {
       diagonal1.push(index * (boardSize + 1));
       diagonal2.push((index + 1) * (boardSize - 1));
