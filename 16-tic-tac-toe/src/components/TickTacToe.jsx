@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import useTickTacToe from "../hooks/useTickTacToe";
 
-export default function TickTacToe() {
+export default function TickTacToe({ boardSize = 3 }) {
   const { board, calculateWinner, resetGame, getStatusMessage, handleClick } =
-    useTickTacToe();
+    useTickTacToe(boardSize);
 
   return (
-    <div className="game">
+    <div className="game" style={{ "--board-size": boardSize }}>
       <div className="status">
         <h5>{getStatusMessage()}</h5>
         <button className="reset-button" onClick={resetGame}>

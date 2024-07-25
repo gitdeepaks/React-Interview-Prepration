@@ -1,33 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function initialValue() {
-  return Array(9).fill(null);
+function initialValue(boardSize) {
+  return Array(boardSize * boardSize).fill(null);
 }
 
-export default function useTickTacToe() {
-  const [board, setboard] = useState(initialValue());
-  const [isXNext, setisXNext] = useState(true);
-  const WINNING_PATTERN = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
+export default function useTicTacToe(boardSize) {
+  const [board, setBoard] = useState(initialValue(boardSize));
+  const [isXNext, setIsXNext] = useState(true);
+
+  useEffect(() => {
+    setBoard(initialValue(boardSize));
+    setIsXNext(true);
+  }, [boardSize]);
+
+  function generateWinningPattern() {
+    const patterns = [];
+
+    for (let jndex = 0; jndex < boardSize; jndex++) {
+      const horizontalPattern = [];
+      const verticalPattern = [];
+      for (let i = 0; i < boardSize; i++) {
+        horizontalPattern.push(jndex * boardSize + i);
+        verticalPattern.push(i * boardSize + jndex);
+      }
+      patterns.push(horizontalPattern, verticalPattern);
+    }
+
+    const diagonal1 = [];
+    const diagonal2 = [];
+    for (let index = 0; index < boardSize; index++) {
+      diagonal1.push(index * (boardSize + 1));
+      diagonal2.push((index + 1) * (boardSize - 1));
+    }
+    patterns.push(diagonal1, diagonal2);
+    return patterns;
+  }
+
+  const WINNING_PATTERN = generateWinningPattern();
 
   function calculateWinner(currentBoard) {
     for (let index = 0; index < WINNING_PATTERN.length; index++) {
-      const [a, b, c] = WINNING_PATTERN[index];
-      if (
-        currentBoard[a] &&
-        currentBoard[a] === currentBoard[b] &&
-        currentBoard[a] === currentBoard[c]
-      ) {
-        return currentBoard[a];
+      const pattern = WINNING_PATTERN[index];
+      let countX = 0;
+      let countO = 0;
+      for (let j = 0; j < pattern.length; j++) {
+        const cell = currentBoard[pattern[j]];
+        if (cell === "X") {
+          countX++;
+        } else if (cell === "O") {
+          countO++;
+        }
       }
+      if (countX === boardSize) return "X";
+      if (countO === boardSize) return "O";
     }
     return null;
   }
@@ -38,19 +63,20 @@ export default function useTickTacToe() {
 
     const newBoard = [...board];
     newBoard[idx] = isXNext ? "X" : "O";
-    setboard(newBoard);
-    setisXNext(!isXNext);
+    setBoard(newBoard);
+    setIsXNext(!isXNext);
   }
 
   function getStatusMessage() {
     const winner = calculateWinner(board);
-    if (winner) return `Player ${winner} is Winner`;
-    if (!board.includes(null)) return `its a draw!`;
-    return `Player ${isXNext ? "X" : "O"} turn`;
+    if (winner) return `Player ${winner} is the winner!`;
+    if (!board.includes(null)) return `It's a draw!`;
+    return `Player ${isXNext ? "X" : "O"}'s turn`;
   }
+
   function resetGame() {
-    setboard(initialValue());
-    setisXNext(true);
+    setBoard(initialValue(boardSize));
+    setIsXNext(true);
   }
 
   return { board, handleClick, calculateWinner, getStatusMessage, resetGame };
