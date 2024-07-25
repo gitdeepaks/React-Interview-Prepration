@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+header,footer{
+    background-color: #252525;
+    color: azure;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container{
+    display: flex;
+    flex: 1;
+}
+
+.main-content{
+    flex:1;
+    padding: 20px;
+    background-color: #e5a7a7;
+}
+
+.side-content{
+    width: 200px;
+    padding: 20px;
+}
+.side-left{
+    background-color: #148fc0;
+}
+.side-right{
+    background-color: #14c092;
+}
+
+
+@media only screen and (max-width:480px){
+    .container{
+        flex-direction: column;
+    }
+    .side-content,.main-content{
+        width: 100%;
+    }
+    .side-content{
+        padding: 15px;
+    }
+}
