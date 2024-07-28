@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Carousel from "./components/Carousel";
+import axios from "axios";
 
 function App() {
   const [loading, setloading] = useState(false);
   const [images, setimages] = useState([]);
-  console.log(images);
+  // console.log(images);
+
   async function fetchImages(imageLimit) {
     setloading(true);
 
     try {
-      const res = await fetch(
+      const res = await axios.get(
         `https://jsonplaceholder.typicode.com/photos?_limit=${imageLimit}`
       );
-      const data = await res.json();
+      const data = await res.data;
       setimages(data);
     } catch (error) {
       console.log("Error while fetchin images", error);
@@ -23,7 +25,7 @@ function App() {
   }
 
   useEffect(function () {
-    fetchImages(8);
+    fetchImages(16);
   }, []);
 
   return (
