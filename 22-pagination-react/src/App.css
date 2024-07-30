@@ -1,74 +1,46 @@
-:root {
-  --gap-size: 20px;
-  --primary-bg-color: #6a5959;
-  --secondary-bg-color: #a49898; /* For selected page and hover states */
-  --border-radius: 5px;
-  --margin-standard: 20px;
-  --pagination-padding: 10px;
-  --pagination-margin: 15px 0;
-  --hover-transform: translateY(-5px);
-  --transition-duration: 0.3s;
-  --box-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2);
-  --font-color: white;
-}
-
 .products {
-  margin: var(--margin-standard);
+  margin: 20px;
   padding: 0;
+  list-style-type: none;
   display: grid;
-  gap: var(--gap-size);
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .products__single {
   height: 250px;
-  padding: var(--gap-size);
-  background-color: var(--primary-bg-color);
+  list-style: none;
+  padding: 20px;
+  background-color: rgb(220, 220, 220);
   text-align: center;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+  border-radius: 5px;
+  cursor: pointer; /* Imp on clickables */
 }
 
-.products__single:hover {
-  transform: var(--hover-transform);
-  box-shadow: var(--box-shadow-hover);
-}
-
-.products__single .img {
+.products__single > img{
   width: 100%;
-  height: 80%;
+  height: 95%;
   object-fit: cover;
   margin-bottom: 3px;
-  border-radius: var(--border-radius);
 }
 
 .pagination {
-  padding: var(--pagination-padding);
-  margin: var(--pagination-margin);
+  padding: 10px;
+  margin: 15px 0;
   display: flex;
   justify-content: center;
-  gap: var(--gap-size);
 }
 
-.pagination > span {
+.pagination > span{
+  padding: 15px 20px;
+  border: 1px solid gray;
   cursor: pointer;
-  padding: 5px 10px;
-  background-color: var(--primary-bg-color);
-  color: var(--font-color);
-  border-radius: var(--border-radius);
-  transition: background-color var(--transition-duration) ease;
 }
 
-.pagination span:hover,
-.pagination__selected {
-  background-color: var(--secondary-bg-color); /* Consistent hover and selected state */
-  font-weight: bold;
+.pagination__disable{
+  opacity: 0;
 }
 
-.pagination > span:first-child,
-.pagination > span:last-child {
-  font-size: larger;
+.pagination__selected{
+  background-color: rgb(220, 220, 220);
 }
-
-
