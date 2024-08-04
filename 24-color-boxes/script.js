@@ -27,6 +27,18 @@ const boxConfig = [
     color: "pink",
     width: "30%",
   },
+  {
+    color: "#262666",
+    width: "30%",
+  },
+  {
+    color: "black",
+    width: "30%",
+  },
+  {
+    color: "gray",
+    width: "40%",
+  },
 ];
 
 const container = document.createElement("div");
