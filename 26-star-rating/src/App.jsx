@@ -1,10 +1,23 @@
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import StarRating from "./components/StarRating";
 
 const App = () => {
+  const [currentRating, setCurrentRating] = useState(0);
+
+  function handleRatingChange(newRating) {
+    setCurrentRating(newRating);
+  }
+
   return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
+    <div className="app">
+      <h2>Star Rating</h2>
+      <StarRating
+        size={5}
+        rating={currentRating}
+        setCurrentRating={handleRatingChange}
+      />
+      <p>Current Rating: {currentRating}</p>
     </div>
   );
 };
