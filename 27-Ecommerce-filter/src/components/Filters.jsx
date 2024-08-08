@@ -81,7 +81,7 @@ function Filters() {
       </span>
       <button
         onClick={handleClearFilters}
-        className="bg-slate-500 p-2 text-white rounded-xl"
+        className="bg-sky-500 p-2 text-white rounded-xl"
       >
         Clear Filters
       </button>
