@@ -28,15 +28,23 @@ function App() {
   return (
     <div className="App">
       <input
+        className="rounded-xl text-lg p-5 bg-white text-black"
         type="text"
         value={text}
         onChange={(e) => settext(e.target.value)}
       />
-      <button onClick={() => setsearch(text)}>Search</button>
+      <button
+        className="text-xl text-green-500 bg-slate-300 ml-3 rounded-xl "
+        onClick={() => setsearch(text)}
+      >
+        Search
+      </button>
       {text} {search}
       <ul>
         {fileterUsers.map((filteruser) => (
-          <li key={filteruser.id}>{filteruser.name}</li>
+          <li className="text-3xl tracking-tight" key={filteruser.id}>
+            {filteruser.name}
+          </li>
         ))}
       </ul>
     </div>

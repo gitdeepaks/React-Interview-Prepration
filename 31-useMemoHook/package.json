@@ -11,12 +11,16 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@rspack/plugin-react-refresh": "1.0.0-beta.4",
     "@rspack/cli": "1.0.0-beta.4",
     "@rspack/core": "1.0.0-beta.4",
+    "@rspack/plugin-react-refresh": "1.0.0-beta.4",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
-    "react-refresh": "^0.14.0"
+    "postcss": "^8.4.41",
+    "postcss-loader": "^8.1.1",
+    "react-refresh": "^0.14.0",
+    "tailwindcss": "^3.4.9"
   }
 }
