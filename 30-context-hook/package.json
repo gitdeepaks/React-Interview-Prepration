@@ -3,16 +3,20 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "rsbuild dev --open",
-    "build": "rsbuild build",
-    "preview": "rsbuild preview"
+    "dev": "cross-env NODE_ENV=development rspack serve",
+    "build": "cross-env NODE_ENV=production rspack build"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@rsbuild/core": "1.0.1-beta.11",
-    "@rsbuild/plugin-react": "1.0.1-beta.11"
+    "@rspack/plugin-react-refresh": "1.0.0-beta.4",
+    "@rspack/cli": "1.0.0-beta.4",
+    "@rspack/core": "1.0.0-beta.4",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "cross-env": "^7.0.3",
+    "react-refresh": "^0.14.0"
   }
 }

@@ -1,33 +1,12 @@
-import { useContext } from "react";
-// import "./App.css";
-import { ThemeContext } from "./Theme";
+import React from "react";
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
 
-const App = () => {
-  const [theme, toggleTheme] = useContext(ThemeContext);
-  console.log(theme, toggleTheme);
+function App() {
+  const [count, setCount] = useState(0);
 
-  return (
-    <div className="content">
-      <h1
-        style={{
-          background: theme.background,
-          color: theme.foreground,
-        }}
-      >
-        Rsbuild with React
-      </h1>
-      <p
-        style={{
-          background: theme.background,
-          color: theme.foreground,
-        }}
-      >
-        Start building amazing things with Rsbuild.
-      </p>
-
-      <button onClick={() => toggleTheme()}>ToggleTheme</button>
-    </div>
-  );
-};
+  return <h1>UseContext</h1>;
+}
 
 export default App;
