@@ -1,9 +1,11 @@
-import "./App.css";
+import { useState } from "react";
+// import "./App.css";
 
 const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="content">
-      <h1>React Memo</h1>
+      <button onClick={() => setIsModalOpen(true)}>Toggle Modal</button>
     </div>
   );
 };
