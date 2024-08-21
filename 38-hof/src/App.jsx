@@ -17,7 +17,7 @@ function App() {
     <>
       <div className="App">
         <form onSubmit={regiter}>
-          <label htmlFor="">Email</label>
+          <label htmlFor="">Email 🚀</label>
           <input
             type="text"
             value={email}
