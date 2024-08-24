@@ -1,0 +1,17 @@
+{
+  "name": "41-redux-with-js",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "1.0.1-beta.16"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.7",
+    "redux": "^5.0.1"
+  }
+}
